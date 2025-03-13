@@ -194,10 +194,19 @@ st.markdown("""
         background-color: #3e2723;
         color: white;
     }
+    
+    /* 디버그 정보 스타일 */
+    .debug-info {
+        background-color: #f8f1e4;
+        border: 2px solid #8d6e63;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# 세션 스테이트 초기화
+# 세션 상태 초기화 - 주의: if 'key' not in st.session_state 구문 사용
 if 'cart' not in st.session_state:
     st.session_state.cart = []
 if 'order_history' not in st.session_state:
@@ -206,6 +215,8 @@ if 'order_number' not in st.session_state:
     st.session_state.order_number = 1000
 if 'active_tab' not in st.session_state:
     st.session_state.active_tab = "메뉴"
+if 'debug_mode' not in st.session_state:
+    st.session_state.debug_mode = False
 
 # 앱 제목
 st.title("☕ 우리 동네 커피숍 🍵🧋")
@@ -225,46 +236,24 @@ temp_options = ["기본 (핫)", "아이스"]
 sweetener_options = ["바닐라 시럽", "헤이즐넛 시럽", "카라멜 소스", "초콜릿 소스", "무설탕 바닐라 시럽"]
 special_requests = ["엑스트라 핫", "한 펌프", "하프 카프", "엑스트라 폼", "더티 (에스프레소 샷 추가)"]
 
-# 사이드바 - 영업 정보
-with st.sidebar:
-    st.image("https://via.placeholder.com/150x150.png?text=☕", width=150)
-    st.title("우리 동네 커피숍")
-    st.markdown("### 영업 시간")
-    st.info("화, 수, 목 오전 10시 - 오후 2시")
-    st.markdown("### 가격")
-    st.success("모든 음료는 무료!")
-    
-    # 네비게이션
-    st.markdown("## 메뉴")
-    if st.button("메뉴 보기 🍹", key="menu_button"):
-        st.session_state.active_tab = "메뉴"
-    if st.button("장바구니 🛒", key="cart_button"):
-        st.session_state.active_tab = "장바구니"
-    if st.button("주문 내역 📋", key="history_button"):
-        st.session_state.active_tab = "주문 내역"
-    
-    st.markdown("---")
-    st.markdown("### 고객 맞춤형 음료 ✨")
-    st.markdown("다양한 우유, 시럽, 온도 등의 옵션으로 나만의 음료를 만들어보세요!")
-    
-    # 푸터
-    st.markdown("---")
-    st.markdown("#### ☕ 즐거운 시간 되세요! ☕")
-    st.markdown("특별한 날을 위한 특별한 음료를 준비했습니다.")
-
 # 장바구니에 추가하는 함수
 def add_to_cart(drink, milk, shots, caffeine, temp, sweeteners, special, quantity):
+    # 중요: 깊은 복사나 새 객체 생성으로 참조 문제 해결
     item = {
         "drink": drink,
         "milk": milk,
         "shots": shots,
         "caffeine": caffeine,
         "temp": temp,
-        "sweeteners": sweeteners,
-        "special": special,
+        "sweeteners": sweeteners.copy() if sweeteners else [],  # 리스트는 복사
+        "special": special.copy() if special else [],  # 리스트는 복사
         "quantity": quantity
     }
+    
+    # 장바구니에 항목 추가
     st.session_state.cart.append(item)
+    
+    # 성공 메시지
     st.success(f"{drink} {quantity}잔이 장바구니에 추가되었습니다!")
 
 # 장바구니 비우기
@@ -278,13 +267,29 @@ def complete_order():
         st.error("장바구니가 비어있습니다.")
         return
     
+    # 깊은 복사를 통해 참조 문제 해결
+    items_copy = []
+    for item in st.session_state.cart:
+        items_copy.append({
+            "drink": item["drink"],
+            "milk": item["milk"],
+            "shots": item["shots"],
+            "caffeine": item["caffeine"],
+            "temp": item["temp"],
+            "sweeteners": item["sweeteners"].copy() if item["sweeteners"] else [],
+            "special": item["special"].copy() if item["special"] else [],
+            "quantity": item["quantity"]
+        })
+    
+    # 주문 정보 생성
     order = {
         "order_number": st.session_state.order_number,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "items": st.session_state.cart.copy(),
+        "items": items_copy,
         "total_items": sum(item["quantity"] for item in st.session_state.cart)
     }
     
+    # 주문 내역에 추가
     st.session_state.order_history.append(order)
     st.session_state.order_number += 1
     
@@ -304,6 +309,47 @@ def complete_order():
     
     # 주문 내역 페이지로 이동
     st.session_state.active_tab = "주문 내역"
+
+# 사이드바 - 영업 정보
+with st.sidebar:
+    st.image("https://via.placeholder.com/150x150.png?text=☕", width=150)
+    st.title("우리 동네 커피숍")
+    st.markdown("### 영업 시간")
+    st.info("화, 수, 목 오전 10시 - 오후 2시")
+    st.markdown("### 가격")
+    st.success("모든 음료는 무료!")
+    
+    # 네비게이션
+    st.markdown("## 메뉴")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("메뉴 보기 🍹", key="menu_button", use_container_width=True):
+            st.session_state.active_tab = "메뉴"
+            st.experimental_rerun()
+    
+    with col2:
+        if st.button("장바구니 🛒", key="cart_button", use_container_width=True):
+            st.session_state.active_tab = "장바구니"
+            st.experimental_rerun()
+    
+    if st.button("주문 내역 📋", key="history_button", use_container_width=True):
+        st.session_state.active_tab = "주문 내역"
+        st.experimental_rerun()
+    
+    st.markdown("---")
+    st.markdown("### 고객 맞춤형 음료 ✨")
+    st.markdown("다양한 우유, 시럽, 온도 등의 옵션으로 나만의 음료를 만들어보세요!")
+    
+    # 디버그 모드 토글
+    if st.checkbox("디버그 모드", value=st.session_state.debug_mode):
+        st.session_state.debug_mode = True
+    else:
+        st.session_state.debug_mode = False
+    
+    # 푸터
+    st.markdown("---")
+    st.markdown("#### ☕ 즐거운 시간 되세요! ☕")
+    st.markdown("특별한 날을 위한 특별한 음료를 준비했습니다.")
 
 # 메뉴 탭
 def show_menu():
@@ -384,6 +430,10 @@ def show_menu():
     # 장바구니에 추가 버튼
     if st.button("장바구니에 추가 🛒", use_container_width=True):
         add_to_cart(drink, milk, shots, caffeine, temp, sweeteners, special, quantity)
+        
+        # 장바구니에 추가 후 장바구니 화면으로 자동 이동
+        st.session_state.active_tab = "장바구니"
+        st.experimental_rerun()
 
 # 장바구니 탭
 def show_cart():
@@ -393,6 +443,7 @@ def show_cart():
         st.info("장바구니가 비어있습니다.")
         if st.button("메뉴로 돌아가기 🍹"):
             st.session_state.active_tab = "메뉴"
+            st.experimental_rerun()
         return
     
     # 장바구니 내용 표시
@@ -424,7 +475,10 @@ def show_cart():
             
             with col2:
                 if st.button("삭제 🗑️", key=f"remove_{i}"):
-                    st.session_state.cart.pop(i)
+                    # 삭제 후 세션 상태 갱신을 위해 새 리스트 생성
+                    new_cart = st.session_state.cart.copy()
+                    new_cart.pop(i)
+                    st.session_state.cart = new_cart
                     st.experimental_rerun()
     
     # 주문 합계
@@ -437,12 +491,13 @@ def show_cart():
     col1, col2 = st.columns(2)
     with col1:
         if st.button("장바구니 비우기 🗑️", use_container_width=True):
-            clear_cart()
+            st.session_state.cart = []
             st.experimental_rerun()
     
     with col2:
         if st.button("주문 완료 ✅", type="primary", use_container_width=True):
             complete_order()
+            st.experimental_rerun()
 
 # 주문 내역 탭
 def show_order_history():
@@ -452,11 +507,12 @@ def show_order_history():
         st.info("주문 내역이 없습니다.")
         if st.button("메뉴로 돌아가기 🍹", key="menu_from_history"):
             st.session_state.active_tab = "메뉴"
+            st.experimental_rerun()
         return
     
     # 최신 주문부터 표시
     for order in reversed(st.session_state.order_history):
-        with st.expander(f"주문 #{order['order_number']} - {order['date']}"):
+        with st.expander(f"주문 #{order['order_number']} - {order['date']}", expanded=True):
             for item in order['items']:
                 with st.container():
                     st.markdown(f"<div class='menu-item'>", unsafe_allow_html=True)
@@ -484,6 +540,24 @@ def show_order_history():
     
     if st.button("새 주문하기 🆕", use_container_width=True):
         st.session_state.active_tab = "메뉴"
+        st.experimental_rerun()
+
+# 디버그 정보 표시 (디버그 모드가 활성화된 경우)
+if st.session_state.debug_mode:
+    st.markdown('<div class="debug-info">', unsafe_allow_html=True)
+    st.markdown("### 🔍 디버그 정보")
+    st.markdown("#### 현재 세션 상태:")
+    st.write(f"- 활성 탭: {st.session_state.active_tab}")
+    st.write(f"- 장바구니 항목 수: {len(st.session_state.cart)}")
+    st.write(f"- 주문 내역 수: {len(st.session_state.order_history)}")
+    st.write(f"- 다음 주문 번호: {st.session_state.order_number}")
+    
+    st.markdown("#### 장바구니 내용:")
+    st.json(st.session_state.cart)
+    
+    st.markdown("#### 주문 내역:")
+    st.json(st.session_state.order_history)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # 메인 컨텐츠 - 탭에 따라 다른 내용 표시
 if st.session_state.active_tab == "메뉴":
