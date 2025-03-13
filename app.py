@@ -25,98 +25,77 @@ st.markdown("""
         padding-bottom: 2rem;
     }
     
-    /* 메인 제목 스타일 */
-    .main-title {
-        color: #4e342e;
-        font-size: 3.5rem;
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    /* 부제목 스타일 */
-    .subtitle {
-        color: #5d4037;
-        font-size: 1.8rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    
     /* 제목 스타일 */
     h1 {
-        color: #4e342e;
-        font-size: 3rem !important;
+        color: #5a3825;
+        font-size: 3.2rem !important;
         font-weight: 800 !important;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
     h2 {
-        color: #4e342e;
-        font-size: 2.3rem !important;
+        color: #5a3825;
+        font-size: 2.5rem !important;
         font-weight: 700 !important;
     }
     
     h3 {
-        color: #4e342e;
+        color: #5a3825;
         font-size: 1.8rem !important;
-        font-weight: 600 !important;
     }
     
     /* 버튼 스타일 */
     .stButton>button {
-        background-color: #5d4037;
-        color: #ffebcd;
+        background-color: #6b4226;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         font-weight: bold;
         font-size: 1.1rem;
         border-radius: 8px;
         border: none;
         padding: 0.6rem 1.2rem;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     .stButton>button:hover {
         background-color: #8d6e63;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
     }
     
     /* 메뉴 카테고리 스타일 */
     .menu-category {
-        background: linear-gradient(135deg, #5d4037, #8d6e63);
+        background: linear-gradient(135deg, #6b4226, #8d6e63);
         padding: 1rem 1.5rem;
         border-radius: 10px;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         font-weight: bold;
         font-size: 1.5rem;
-        color: #ffebcd;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         text-align: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
     }
     
     /* 메뉴 아이템 스타일 */
     .menu-item {
-        background-color: #5d4037;
-        color: #ffebcd;
-        padding: 1.2rem;
+        background-color: #6b4226;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
+        padding: 1rem;
         border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .menu-item:hover {
-        box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         transform: translateY(-2px);
         transition: all 0.3s ease;
     }
     
     /* 하이라이트 스타일 */
     .highlight {
-        background-color: #ffab40;
-        color: #4e342e;
+        background-color: #ffb74d;
+        color: #5a3825;
         padding: 0.3rem 0.6rem;
         border-radius: 5px;
         font-weight: 600;
@@ -125,222 +104,131 @@ st.markdown("""
     /* 주문 요약 스타일 */
     .order-summary {
         background-color: #8d6e63;
-        color: #ffebcd;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         padding: 1.5rem;
         border-radius: 10px;
         margin-top: 1.5rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        font-size: 1.1rem;
-    }
-    
-    /* 장바구니 헤더 스타일 */
-    .cart-header {
-        background-color: #4e342e;
-        color: #ffebcd;
-        padding: 1.5rem;
-        border-radius: 10px 10px 0 0;
-        font-size: 2.2rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
     }
     
     /* 푸터 스타일 */
     .footer {
         text-align: center;
-        margin-top: 3rem;
+        margin-top: 2rem;
         padding: 1.5rem;
-        background-color: #4e342e;
-        color: #ffebcd;
-        font-size: 1.1rem;
+        background-color: #6b4226;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
+        font-size: 1rem;
         border-radius: 10px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     }
     
     /* 셀렉트박스 스타일 */
     div.stSelectbox > div > div {
-        background-color: #fff3e0;
-        color: #4e342e !important;
+        background-color: #f8f1e4;
+        color: #5a3825 !important;
         font-weight: 600;
         border: 2px solid #8d6e63;
-        font-size: 1.1rem;
     }
     
     div.stMultiselect > div > div {
-        background-color: #fff3e0;
-        color: #4e342e !important;
+        background-color: #f8f1e4;
+        color: #5a3825 !important;
         font-weight: 600;
         border: 2px solid #8d6e63;
-        font-size: 1.1rem;
     }
     
     /* 인풋 필드 스타일 */
     .stNumberInput input, .stTextInput input, .stTextArea textarea {
-        background-color: #fff3e0;
-        color: #4e342e;
+        background-color: #f8f1e4;
+        color: #5a3825;
         font-weight: 600;
         border: 2px solid #8d6e63 !important;
         border-radius: 8px;
         padding: 0.8rem;
-        font-size: 1.1rem;
     }
     
     /* 진행 바 스타일 */
     .stProgress > div > div > div {
-        background-color: #5d4037;
+        background-color: #6b4226;
     }
     
     /* 카테고리 탭 스타일 */
     .coffee-tab {
-        background-color: #5d4037;
-        color: #ffebcd;
+        background-color: #6b4226;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         padding: 1.2rem;
         border-radius: 10px 10px 0 0;
         font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
         margin-bottom: -1px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     }
     
     .options-tab {
-        background-color: #7d5d4f;
-        color: #ffebcd;
+        background-color: #8d6e63;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         padding: 1.2rem;
         border-radius: 10px 10px 0 0;
         font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
         margin-bottom: -1px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    }
-    
-    /* 장바구니 아이콘 스타일 */
-    .cart-icon {
-        color: #ffebcd;
-        font-size: 2rem;
-        margin-right: 0.5rem;
     }
     
     /* 드롭다운 옵션 스타일 */
     .coffee-option {
-        background-color: #5d4037;
-        color: #ffebcd;
+        background-color: #6b4226;
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
         padding: 1rem;
         border-radius: 0;
-        border-bottom: 1px solid rgba(255,235,205,0.3);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
         font-weight: 500;
     }
     
     .coffee-option:hover {
-        background-color: #7d5d4f;
+        background-color: #8d6e63;
     }
     
     /* 사이드바 스타일 */
     .sidebar .sidebar-content {
         background-color: #3e2723;
-        color: #ffebcd;
-    }
-    
-    /* 사이드바 내비게이션 스타일 */
-    .sidebar-nav {
-        background-color: #4e342e;
-        color: #ffebcd;
-        padding: 1.2rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        color: #ffebcd;  /* 흰색 대신 부드러운 베이지 색상으로 변경 */
     }
     
     /* 디버그 정보 스타일 */
     .debug-info {
-        background-color: #fff3e0;
+        background-color: #f8f1e4;
         border: 2px solid #8d6e63;
         border-radius: 10px;
         padding: 1rem;
         margin-top: 2rem;
     }
     
-    /* 장바구니 배지 스타일 */
-    .cart-badge {
-        display: inline-block;
-        background-color: #ff6f00;
-        color: white;
+    /* 장바구니 헤더 */
+    .cart-header {
+        background-color: #6b4226;
+        color: #ffebcd;
+        font-size: 1.8rem;
         font-weight: bold;
-        padding: 0.3rem 0.6rem;
-        border-radius: 50%;
-        margin-left: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    /* 빈 장바구니 스타일 */
-    .empty-cart {
-        background-color: #fff3e0;
-        color: #5d4037;
-        padding: 2rem;
+        padding: 1rem;
         border-radius: 10px;
+        margin-bottom: 1rem;
         text-align: center;
-        margin: 2rem 0;
-        border: 2px dashed #8d6e63;
     }
     
-    /* 정보 메시지 스타일 */
-    .stInfo {
-        background-color: #bbdefb;
-        color: #0d47a1;
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 500;
-    }
-    
-    /* 성공 메시지 스타일 */
-    .stSuccess {
-        background-color: #c8e6c9;
-        color: #1b5e20;
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 500;
-    }
-    
-    /* 에러 메시지 스타일 */
-    .stError {
-        background-color: #ffcdd2;
-        color: #b71c1c;
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 500;
-    }
-    
-    /* 주문 항목 스타일 */
-    .order-item {
-        border-left: 5px solid #ff8f00;
-        padding-left: 1rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    /* 옵션 라벨 스타일 */
-    .option-label {
+    /* 옵션 태그 스타일 */
+    .option-tag {
         background-color: #d7ccc8;
-        color: #4e342e;
+        color: #5a3825;
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
         margin-right: 0.5rem;
         font-size: 0.9rem;
-        font-weight: 500;
-    }
-    
-    /* 강조 버튼 스타일 */
-    .primary-button {
-        background-color: #ff8f00 !important;
-        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 세션 상태 초기화 - 주의: if 'key' not in st.session_state 구문 사용
+# 세션 스테이트 초기화
 if 'cart' not in st.session_state:
     st.session_state.cart = []
 if 'order_history' not in st.session_state:
@@ -352,9 +240,9 @@ if 'active_tab' not in st.session_state:
 if 'debug_mode' not in st.session_state:
     st.session_state.debug_mode = False
 
-# 앱 헤더
-st.markdown('<div class="main-title">☕ 우리 동네 커피숍 🍵</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">맛있는 커피와 함께 특별한 시간을 보내세요!</div>', unsafe_allow_html=True)
+# 앱 제목
+st.title("☕ 우리 동네 커피숍 🍵🧋")
+st.markdown("### 맛있는 커피와 함께 특별한 시간을 보내세요!")
 
 # 메뉴 데이터
 coffee_drinks = ["에스프레소", "아메리카노", "콜드 브루"]
@@ -369,6 +257,42 @@ caffeine_options = ["기본 (레귤러)", "디카페인"]
 temp_options = ["기본 (핫)", "아이스"]
 sweetener_options = ["바닐라 시럽", "헤이즐넛 시럽", "카라멜 소스", "초콜릿 소스", "무설탕 바닐라 시럽"]
 special_requests = ["엑스트라 핫", "한 펌프", "하프 카프", "엑스트라 폼", "더티 (에스프레소 샷 추가)"]
+
+# 사이드바 - 영업 정보
+with st.sidebar:
+    st.image("https://via.placeholder.com/150x150.png?text=☕", width=150)
+    st.title("우리 동네 커피숍")
+    st.markdown("### 영업 시간")
+    st.info("화, 수, 목 오전 10시 - 오후 2시")
+    st.markdown("### 가격")
+    st.success("모든 음료는 무료!")
+    
+    # 네비게이션
+    st.markdown("## 메뉴")
+    if st.button("메뉴 보기 🍹", key="menu_button"):
+        st.session_state.active_tab = "메뉴"
+        st.experimental_rerun()
+    if st.button("장바구니 🛒", key="cart_button"):
+        st.session_state.active_tab = "장바구니"
+        st.experimental_rerun()
+    if st.button("주문 내역 📋", key="history_button"):
+        st.session_state.active_tab = "주문 내역"
+        st.experimental_rerun()
+    
+    st.markdown("---")
+    st.markdown("### 고객 맞춤형 음료")
+    st.markdown("다양한 우유, 시럽, 온도 등의 옵션으로 나만의 음료를 만들어보세요!")
+    
+    # 디버그 모드 토글
+    if st.checkbox("디버그 모드", value=st.session_state.debug_mode):
+        st.session_state.debug_mode = True
+    else:
+        st.session_state.debug_mode = False
+    
+    # 푸터
+    st.markdown("---")
+    st.markdown("#### ☕ 즐거운 시간 되세요! ☕")
+    st.markdown("특별한 날을 위한 특별한 음료를 준비했습니다.")
 
 # 장바구니에 추가하는 함수
 def add_to_cart(drink, milk, shots, caffeine, temp, sweeteners, special, quantity):
@@ -444,63 +368,16 @@ def complete_order():
     # 주문 내역 페이지로 이동
     st.session_state.active_tab = "주문 내역"
 
-# 사이드바 - 영업 정보
-with st.sidebar:
-    st.image("https://via.placeholder.com/150x150.png?text=☕", width=150)
-    st.title("☕ 우리 동네 커피숍")
-    
-    st.markdown('<div class="sidebar-nav">영업 시간</div>', unsafe_allow_html=True)
-    st.info("화, 수, 목 오전 10시 - 오후 2시")
-    
-    st.markdown('<div class="sidebar-nav">가격</div>', unsafe_allow_html=True)
-    st.success("모든 음료는 무료! 🎁")
-    
-    # 네비게이션
-    st.markdown('<div class="sidebar-nav">메뉴</div>', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("메뉴 보기 🍹", key="menu_button", use_container_width=True):
-            st.session_state.active_tab = "메뉴"
-            st.experimental_rerun()
-    
-    with col2:
-        # 장바구니 아이템 수 배지 표시
-        cart_count = len(st.session_state.cart)
-        cart_label = f"장바구니 🛒 {cart_count}" if cart_count > 0 else "장바구니 🛒"
-        
-        if st.button(cart_label, key="cart_button", use_container_width=True):
-            st.session_state.active_tab = "장바구니"
-            st.experimental_rerun()
-    
-    if st.button("주문 내역 📋", key="history_button", use_container_width=True):
-        st.session_state.active_tab = "주문 내역"
-        st.experimental_rerun()
-    
-    st.markdown("---")
-    st.markdown('<div class="sidebar-nav">고객 맞춤형 음료 ✨</div>', unsafe_allow_html=True)
-    st.markdown("다양한 우유, 시럽, 온도 등의 옵션으로 나만의 음료를 만들어보세요!")
-    
-    # 디버그 모드 토글
-    if st.checkbox("디버그 모드", value=st.session_state.debug_mode):
-        st.session_state.debug_mode = True
-    else:
-        st.session_state.debug_mode = False
-    
-    # 푸터
-    st.markdown("---")
-    st.markdown("#### ☕ 즐거운 시간 되세요! ☕")
-    st.markdown("특별한 날을 위한 특별한 음료를 준비했습니다.")
-
 # 메뉴 탭
 def show_menu():
-    st.markdown('<div class="menu-category">🍹 음료 메뉴</div>', unsafe_allow_html=True)
+    st.markdown("## 🍹 음료 메뉴")
     st.markdown("원하는 음료를 선택하고 맞춤 옵션을 선택하세요.")
     
     # 커피 선택 탭과 맞춤 옵션 탭
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown('<div class="coffee-tab">☕ 커피 선택</div>', unsafe_allow_html=True)
+        st.markdown('<div class="coffee-tab">커피 선택</div>', unsafe_allow_html=True)
         
         # 음료 카테고리 선택
         category = st.selectbox("카테고리", 
@@ -523,7 +400,7 @@ def show_menu():
         quantity = st.number_input("수량", min_value=1, max_value=10, value=1)
         
     with col2:
-        st.markdown('<div class="options-tab">🥛 맞춤 옵션</div>', unsafe_allow_html=True)
+        st.markdown('<div class="options-tab">맞춤 옵션</div>', unsafe_allow_html=True)
         
         # 우유 옵션
         milk = st.selectbox("우유 옵션", milk_options)
@@ -580,12 +457,8 @@ def show_cart():
     st.markdown('<div class="cart-header">🛒 장바구니</div>', unsafe_allow_html=True)
     
     if not st.session_state.cart:
-        st.markdown('<div class="empty-cart">', unsafe_allow_html=True)
-        st.markdown("### 장바구니가 비어있습니다.")
-        st.markdown("메뉴에서 음료를 선택하여 장바구니에 추가해 주세요.")
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        if st.button("메뉴로 돌아가기 🍹", use_container_width=True):
+        st.info("장바구니가 비어있습니다.")
+        if st.button("메뉴로 돌아가기 🍹"):
             st.session_state.active_tab = "메뉴"
             st.experimental_rerun()
         return
@@ -597,30 +470,30 @@ def show_cart():
             
             with col1:
                 st.markdown(f"<div class='menu-item'>", unsafe_allow_html=True)
-                st.markdown(f"### {item['drink']} <span style='font-size:1.5rem;'>x{item['quantity']}</span>")
+                st.markdown(f"### {item['drink']} x{item['quantity']}")
                 
                 options = []
                 if item['milk'] != "기본 (홀)":
-                    options.append(f"<span class='option-label'>{item['milk']}</span>")
+                    options.append(f"<span class='option-tag'>{item['milk']}</span>")
                 if item['shots'] != "기본 (더블)":
-                    options.append(f"<span class='option-label'>{item['shots']}</span>")
+                    options.append(f"<span class='option-tag'>{item['shots']}</span>")
                 if item['caffeine'] != "기본 (레귤러)":
-                    options.append(f"<span class='option-label'>{item['caffeine']}</span>")
+                    options.append(f"<span class='option-tag'>{item['caffeine']}</span>")
                 if item['temp'] != "기본 (핫)":
-                    options.append(f"<span class='option-label'>{item['temp']}</span>")
-                if item['sweeteners']:
-                    for sweetener in item['sweeteners']:
-                        options.append(f"<span class='option-label'>{sweetener}</span>")
-                if item['special']:
-                    for sp in item['special']:
-                        options.append(f"<span class='option-label'>{sp}</span>")
+                    options.append(f"<span class='option-tag'>{item['temp']}</span>")
+                
+                for sweetener in item['sweeteners']:
+                    options.append(f"<span class='option-tag'>{sweetener}</span>")
+                
+                for sp in item['special']:
+                    options.append(f"<span class='option-tag'>{sp}</span>")
                 
                 if options:
-                    st.markdown(f"<div class='order-item'>옵션: {''.join(options)}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div>옵션: {''.join(options)}</div>", unsafe_allow_html=True)
                 st.markdown("</div>", unsafe_allow_html=True)
             
             with col2:
-                if st.button("삭제 🗑️", key=f"remove_{i}", use_container_width=True):
+                if st.button("삭제 🗑️", key=f"remove_{i}"):
                     # 삭제 후 세션 상태 갱신을 위해 새 리스트 생성
                     new_cart = st.session_state.cart.copy()
                     new_cart.pop(i)
@@ -641,8 +514,7 @@ def show_cart():
             st.experimental_rerun()
     
     with col2:
-        # 주문 완료 버튼에 primary 클래스 추가
-        if st.button("주문 완료 ✅", key="complete_order", type="primary", use_container_width=True):
+        if st.button("주문 완료 ✅", type="primary", use_container_width=True):
             complete_order()
             st.experimental_rerun()
 
@@ -651,10 +523,74 @@ def show_order_history():
     st.markdown('<div class="cart-header">📋 주문 내역</div>', unsafe_allow_html=True)
     
     if not st.session_state.order_history:
-        st.markdown('<div class="empty-cart">', unsafe_allow_html=True)
-        st.markdown("### 주문 내역이 없습니다.")
-        st.markdown("아직 완료된 주문이 없습니다. 메뉴에서 음료를 선택하여 주문해 보세요.")
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        if st.button("메뉴로 돌아가기 🍹", key="menu_from_history", use_container_width=True):
-            st
+        st.info("주문 내역이 없습니다.")
+        if st.button("메뉴로 돌아가기 🍹", key="menu_from_history"):
+            st.session_state.active_tab = "메뉴"
+            st.experimental_rerun()
+        return
+    
+    # 최신 주문부터 표시
+    for order in reversed(st.session_state.order_history):
+        with st.expander(f"주문 #{order['order_number']} - {order['date']}", expanded=True):
+            for item in order['items']:
+                with st.container():
+                    st.markdown(f"<div class='menu-item'>", unsafe_allow_html=True)
+                    st.markdown(f"### {item['drink']} x{item['quantity']}")
+                    
+                    options = []
+                    if item['milk'] != "기본 (홀)":
+                        options.append(f"<span class='option-tag'>{item['milk']}</span>")
+                    if item['shots'] != "기본 (더블)":
+                        options.append(f"<span class='option-tag'>{item['shots']}</span>")
+                    if item['caffeine'] != "기본 (레귤러)":
+                        options.append(f"<span class='option-tag'>{item['caffeine']}</span>")
+                    if item['temp'] != "기본 (핫)":
+                        options.append(f"<span class='option-tag'>{item['temp']}</span>")
+                    
+                    for sweetener in item['sweeteners']:
+                        options.append(f"<span class='option-tag'>{sweetener}</span>")
+                    
+                    for sp in item['special']:
+                        options.append(f"<span class='option-tag'>{sp}</span>")
+                    
+                    if options:
+                        st.markdown(f"<div>옵션: {''.join(options)}</div>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
+            
+            st.success(f"총 {order['total_items']}잔 주문 완료")
+    
+    if st.button("새 주문하기 🆕", use_container_width=True):
+        st.session_state.active_tab = "메뉴"
+        st.experimental_rerun()
+
+# 디버그 정보 표시 (디버그 모드가 활성화된 경우)
+if st.session_state.debug_mode:
+    st.markdown('<div class="debug-info">', unsafe_allow_html=True)
+    st.markdown("### 🔍 디버그 정보")
+    st.markdown("#### 현재 세션 상태:")
+    st.write(f"- 활성 탭: {st.session_state.active_tab}")
+    st.write(f"- 장바구니 항목 수: {len(st.session_state.cart)}")
+    st.write(f"- 주문 내역 수: {len(st.session_state.order_history)}")
+    st.write(f"- 다음 주문 번호: {st.session_state.order_number}")
+    
+    st.markdown("#### 장바구니 내용:")
+    st.json(st.session_state.cart)
+    
+    st.markdown("#### 주문 내역:")
+    st.json(st.session_state.order_history)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# 메인 컨텐츠 - 탭에 따라 다른 내용 표시
+if st.session_state.active_tab == "메뉴":
+    show_menu()
+elif st.session_state.active_tab == "장바구니":
+    show_cart()
+elif st.session_state.active_tab == "주문 내역":
+    show_order_history()
+
+# 푸터
+st.markdown("""
+<div class="footer">
+    <p>© 2025 우리 동네 커피숍. 모든 권리 보유.</p>
+</div>
+""", unsafe_allow_html=True)
